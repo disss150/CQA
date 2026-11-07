@@ -8,7 +8,7 @@ import { initTheme, themeToggle } from './theme.js';
 import { initMotion, resetCountUps, reducedMotion } from './motion.js';
 import { initFavicon } from './favicon.js';
 import { createLogo } from './components/logo.js';
-import { initFx, prepareSpots } from './fx.js';
+import { initFx, burst, prepareSpots } from './fx.js';
 import { initTour, closeTour, tourOpen } from './tour.js';
 import * as list from './screens/list.js';
 import * as checklist from './screens/checklist.js';
@@ -63,12 +63,10 @@ export function mount(root) {
     h('a', { class: 'cqa-skip', href: '#cqa-main', onclick: (e) => { e.preventDefault(); main.focus(); } }, 'К содержимому'),
     h('header', { class: 'cqa-header' },
       h('div', { class: 'cqa-header__top' },
-        // Кубик — отдельная кнопка (скрыть/показать), название — ссылка на главную: кнопку нельзя вкладывать в ссылку
-        h('div', { class: 'cqa-brand' },
+        h('a', { class: 'cqa-brand', href: '#/list', 'aria-label': 'CQA — на главную, к списку диалогов' },
           logo.el,
-          h('a', { class: 'cqa-brand__link', href: '#/list', 'aria-label': 'CQA — на главную, к списку диалогов' },
-            h('span', { class: 'cqa-brand__text' }, h('strong', { class: 'cqa-brand__title' }, 'Оценка качества диалогов'),
-              h('span', { class: 'cqa-brand__sub' }, 'Учебный прототип хакатона · не продукт компании')))),
+          h('span', { class: 'cqa-brand__text' }, h('strong', { class: 'cqa-brand__title' }, 'Оценка качества диалогов'),
+            h('span', { class: 'cqa-brand__sub' }, 'Учебный прототип хакатона · не продукт компании'))),
         h('div', { class: 'cqa-header__tools' }, themeToggle())),
       nav),
     h('div', { class: 'cqa-context' }, h('div', { class: 'cqa-context__inner', 'aria-label': 'Текущий контекст работы' }, contextToggle, contextItems)),
@@ -80,10 +78,13 @@ export function mount(root) {
   initFx(root);
   prepareSpots(main);
   initTour(root);
-  // Вспышка favicon по клику и после оценки; знак делает оборот после оценки (если не скрыт).
-  // Клик по знаку теперь скрывает и показывает его (components/logo.js), поэтому искры по клику убраны.
+  // Вспышка favicon по клику и после оценки; знак делает оборот после оценки
   root.addEventListener('pointerdown', () => favicon.flash());
   document.addEventListener('cqa:evaluated', () => { favicon.flash(); logo.flash(); });
+  logo.el.addEventListener('pointerdown', () => {
+    const r = logo.el.getBoundingClientRect();
+    burst({ x: r.left + r.width / 2, y: r.top + r.height / 2, count: 24, kind: 'sparks' });
+  });
 
   function renderContext() {
     const cl = store.activeChecklist();
