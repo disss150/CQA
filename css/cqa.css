@@ -134,7 +134,9 @@
 .cqa-header { background: linear-gradient(120deg, var(--cqa-header-from), var(--cqa-header-to)); color: var(--cqa-on-dark); }
 .cqa-header__top, .cqa-nav { max-width: var(--cqa-max); margin: 0 auto; padding: 0 var(--cqa-s4); }
 .cqa-header__top { display: flex; align-items: center; justify-content: space-between; gap: var(--cqa-s3); padding-top: var(--cqa-s3); padding-bottom: var(--cqa-s2); }
-.cqa-app .cqa-brand { display: flex; align-items: center; gap: var(--cqa-s3); min-width: 0; color: inherit; text-decoration: none; }
+.cqa-app .cqa-brand { display: flex; align-items: center; gap: var(--cqa-s3); min-width: 0; color: inherit; }
+.cqa-app .cqa-brand__link { display: block; min-width: 0; color: inherit; text-decoration: none; border-radius: var(--cqa-r-sm); }
+.cqa-app .cqa-brand__link:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 3px; }
 .cqa-brand__text { min-width: 0; }
 .cqa-brand__title { display: block; font-size: 16px; font-weight: 600; line-height: 1.2; }
 .cqa-brand__sub { display: block; font-size: 12px; color: var(--cqa-on-dark-muted); }
@@ -698,12 +700,29 @@ select.cqa-input { padding-right: var(--cqa-s8); }
 }
 .cqa-logo__glow { position: absolute; inset: -8px; border-radius: 50%; background: radial-gradient(circle, rgba(52, 211, 153, .85), rgba(52, 211, 153, 0) 70%); opacity: 0; pointer-events: none; }
 .cqa-logo__tilt { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(-24deg); }
-.cqa-logo__spin, .cqa-logo__boost, .cqa-logo__turn, .cqa-logo__cube { position: absolute; inset: 0; transform-style: preserve-3d; }
+.cqa-logo__pop, .cqa-logo__spin, .cqa-logo__boost, .cqa-logo__turn, .cqa-logo__cube { position: absolute; inset: 0; transform-style: preserve-3d; }
 .cqa-logo__spin { animation: cqa-logo-spin 7s linear infinite; will-change: transform; }
 .cqa-logo__boost { animation: cqa-logo-spin 1.4s linear infinite paused; }
 .cqa-logo:hover .cqa-logo__boost { animation-play-state: running; }
 .cqa-logo--turn .cqa-logo__turn { animation: cqa-logo-turn 700ms cubic-bezier(.3, .7, .2, 1); }
 .cqa-logo--turn .cqa-logo__glow { animation: cqa-logo-glow 700ms ease-out; }
+/* Кнопка «скрыть / показать знак». Место знака не схлопывается: название остаётся на месте, высота шапки не меняется. */
+.cqa-app .cqa-logo-btn {
+  position: relative; flex: none; display: grid; place-items: center; margin: -4px; padding: 4px; border: 0; border-radius: 10px;
+  background: none; color: inherit; cursor: pointer;
+}
+.cqa-app .cqa-logo-btn:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 0; }
+/* Скрытый знак: на его месте едва заметная пунктирная рамка — подсказка, куда нажать, чтобы вернуть */
+.cqa-app .cqa-logo-btn::after {
+  content: ""; position: absolute; inset: 6px; border: 1.5px dashed currentColor; border-radius: 8px; opacity: 0; pointer-events: none;
+}
+.cqa-app .cqa-logo-btn[aria-expanded="false"]::after { opacity: .3; }
+.cqa-app .cqa-logo-btn[aria-expanded="false"]:hover::after,
+.cqa-app .cqa-logo-btn[aria-expanded="false"]:focus-visible::after { opacity: .6; }
+.cqa-logo--hidden { opacity: 0; }
+.cqa-logo--hidden .cqa-logo__pop { transform: scale(0); }
+/* Скрыт — вращение стоит; появился — продолжается с того же угла */
+.cqa-logo--hidden .cqa-logo__spin, .cqa-logo--hidden .cqa-logo__boost { animation-play-state: paused; }
 @keyframes cqa-logo-spin { to { transform: rotateY(360deg); } }
 @keyframes cqa-logo-turn { to { transform: rotateY(360deg); } }
 @keyframes cqa-logo-glow { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
