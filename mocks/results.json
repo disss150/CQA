@@ -1,0 +1,2298 @@
+[
+  {
+    "conversation_id": "p1-ru-001",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "В первом ответе (#5) оператор поздоровался по-русски и представился: «Меня зовут Алия».",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "До проверки заявки оператор спросил, на какой счёт и на какую сумму выводились средства (#5). Клиент назвал оба параметра (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 20,
+        "weight": 20,
+        "explanation": "Оператор запросил ФИО и 4 цифры договора (#7) до раскрытия статуса заявки. Система подтвердила идентификацию (#9).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 20,
+        "weight": 20,
+        "explanation": "Оператор назвал статус заявки, срок зачисления и следующий шаг (#11). На вопрос об ускорении корректно ответил и предложил платёжное поручение (#13).",
+        "evidence_ids": [
+          11,
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор извинился за ожидание (#5) и предложил конкретную помощь для обращения в банк (#13).",
+        "evidence_ids": [
+          5,
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 7,
+        "points": 10.5,
+        "weight": 15,
+        "explanation": "После «личность подтверждена» (#10) почти 2 минуты (02:00 → 03:52) не было сообщений и предупреждения об ожидании, ответ пришёл только в #11. Остальные ответы ясные.",
+        "evidence_ids": [
+          10,
+          11
+        ],
+        "skipped_at": {
+          "from": 10,
+          "to": 11
+        },
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь (#15) и попрощался (#17).",
+        "evidence_ids": [
+          15,
+          17
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 18
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 95.5
+  },
+  {
+    "conversation_id": "p1-kz-001",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "Оператор поздоровался по-казахски и представился: «Менің атым Әсел» (#5).",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор уточнил период и язык выписки (#5), клиент ответил: «Қазан айына, қазақ тілінде» (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 20,
+        "weight": 20,
+        "explanation": "Перед отправкой документа оператор запросил аты-жөні и номер договора (#7). Система подтвердила личность (#9).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 20,
+        "weight": 20,
+        "explanation": "Выписка за октябрь на казахском отправлена на почту (#11). Когда файл не открылся, оператор прислал PDF и подсказал раздел «Құжаттар» в личном кабинете (#13).",
+        "evidence_ids": [
+          11,
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор извинился за неудобство: «Қолайсыздық үшін кешіріңіз» (#13), и сразу решил проблему с файлом.",
+        "evidence_ids": [
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор предупредил об ожидании около 3 минут (#10), ответ пришёл через 3 минуты (#11). Ответы ясные и последовательные.",
+        "evidence_ids": [
+          10,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор спросил, остались ли вопросы, и попрощался: «сау болыңыз» (#15).",
+        "evidence_ids": [
+          15
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Грубых нарушений не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 16
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 100
+  },
+  {
+    "conversation_id": "p1-en-001",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "Оператор поздоровался по-английски и представился: «My name is Mark» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор учёл, что клиент потерял доступ к старому адресу, и уточнил новый (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "no",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Смена email — защищённое действие. На участке #2–#5 личность не проверялась, а в #5 заявка уже отправлена. Проверка требовалась и не подтверждена в чате, поэтому «Нет», а не N/A.",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": {
+          "from": 2,
+          "to": 5
+        },
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 20,
+        "weight": 20,
+        "explanation": "Оператор сообщил срок обновления адреса — 24 часа (#5) и как придёт подтверждение (#7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор посочувствовал потере доступа: «Sorry to hear you lost access» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 15,
+        "weight": 15,
+        "explanation": "Ответы короткие и ясные (#5, #7), оператор отвечал в пределах 30 секунд.",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь и попрощался (#9).",
+        "evidence_ids": [
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Грубых нарушений не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 10
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 80
+  },
+  {
+    "conversation_id": "p1-ru-002",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 15.38,
+        "weight": 10,
+        "explanation": "В первом ответе (#3) оператор поздоровался и представился: «Меня зовут Данияр».",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал рынок, тариф и второй вопрос (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Общий вопрос о тарифах (#2): персональные данные не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 15,
+        "points": 23.08,
+        "weight": 20,
+        "explanation": "Оператор назвал комиссию и сказал, что платы за обслуживание нет (#3), объяснил порядок покупки валюты (#5). Не упомянута комиссия за конвертацию — второстепенная деталь.",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 23.08,
+        "weight": 15,
+        "explanation": "Ответы вежливые и по существу (#3, #5). Недовольства клиент не выражал.",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 23.08,
+        "weight": 15,
+        "explanation": "Ответы ясные и идут в порядке вопросов клиента (#3, #5).",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "no",
+        "points": 0,
+        "weight": 5,
+        "explanation": "После «Понял, спасибо» (#6) оператор не предложил помощь и не попрощался, чат закрыт (#7).",
+        "evidence_ids": [
+          6,
+          7
+        ],
+        "skipped_at": {
+          "from": 5,
+          "to": 7
+        },
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Грубых нарушений не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 7
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 84.62
+  },
+  {
+    "conversation_id": "p1-ru-003",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "no",
+        "points": 0,
+        "weight": 10,
+        "explanation": "Оператор поздоровался (#3), но не представился ни в первом, ни во втором ответе (#3–#4).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": {
+          "from": 3,
+          "to": 4
+        },
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Оператор не уточнил, какие активы просели и почему клиент хочет закрыть счёт, и сразу перешёл к ответу (#4).",
+        "evidence_ids": [
+          4
+        ],
+        "skipped_at": {
+          "from": 2,
+          "to": 4
+        },
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась.",
+        "evidence_ids": [
+          4,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": "Оператор не раскрывал данные и не выполнял защищённых действий: заявление на закрытие клиент оформляет сам в личном кабинете (#4, #8)."
+      },
+      {
+        "id": 4,
+        "answer": 10,
+        "points": 12.5,
+        "weight": 20,
+        "explanation": "Оператор сказал, где подать заявление на закрытие счёта (#4, #8). Вопрос о просадке портфеля и вариантах действий остался открытым.",
+        "evidence_ids": [
+          4,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Формальное «понимаю» (#3) без помощи по просадке портфеля и резкое «Всё.» в конце (#8).",
+        "evidence_ids": [
+          3,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 4,
+        "points": 7.5,
+        "weight": 15,
+        "explanation": "Клиенту пришлось повторно спросить, как закрыть счёт (#7): ответ потерялся в постороннем предложении (#4).",
+        "evidence_ids": [
+          4,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "no",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Оператор не предложил помощь и не попрощался: после «Всё.» (#8) чат закрыт (#9).",
+        "evidence_ids": [
+          8,
+          9
+        ],
+        "skipped_at": {
+          "from": 8,
+          "to": 9
+        },
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "yes",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оператор предложил перевести деньги ему на карту для частного управления портфелем (#4) и подтвердил, что это не услуга компании (#6).",
+        "evidence_ids": [
+          4,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": true,
+      "type": "bypass_service"
+    },
+    "total": 20
+  },
+  {
+    "conversation_id": "p1-call-001",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 12.5,
+        "weight": 10,
+        "explanation": "Оператор поздоровался и представился в первой реплике: «Меня зовут Тимур» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 18.75,
+        "weight": 15,
+        "explanation": "Прежде чем давать рекомендацию, оператор уточнил, откуда клиент берёт код (#5). Клиент ответил: по SMS (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась: оператор не открывал аккаунт клиента и не выполнял действий с ним. Он дал общую подсказку (#7), а вход клиент выполнил сам своим SMS-кодом (#8).",
+        "evidence_ids": [
+          4,
+          7,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": "Общая консультация по входу в приложение (#4): оператор не раскрывал данные, не менял настройки и не восстанавливал доступ — защищённого действия с его стороны не было. Код из SMS клиент получил и ввёл сам (#8)."
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 25,
+        "weight": 20,
+        "explanation": "Оператор подсказал вводить последний код (#7), клиент нашёл ошибку и вошёл (#8). Затем оператор объяснил, что делать в следующий раз (#9).",
+        "evidence_ids": [
+          7,
+          8,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 18.75,
+        "weight": 15,
+        "explanation": "Оператор отреагировал на неудобство: «Понимаю, это неприятно» (#5), и спокойно провёл клиента по шагам (#7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 18.75,
+        "weight": 15,
+        "explanation": "Инструкции короткие и понятные (#7), паузы не длиннее 12 секунд.",
+        "evidence_ids": [
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 6.25,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь (#9) и попрощался (#11).",
+        "evidence_ids": [
+          9,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Грубых нарушений не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 12
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 100
+  },
+  {
+    "conversation_id": "p1-ru-004",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 12.5,
+        "weight": 10,
+        "explanation": "В первом голосовом сообщении (#3) оператор поздоровался по-русски и представился: «меня зовут Руслан». Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 18.75,
+        "weight": 15,
+        "explanation": "До ответа оператор уточнил биржу и тариф (#3), клиент назвал оба (#4). Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          3,
+          4
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          2,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": "Оператор объяснил условия тарифа в общем виде (#5): данные счёта не раскрывал, защищённых действий не выполнял."
+      },
+      {
+        "id": 4,
+        "answer": 15,
+        "points": 18.75,
+        "weight": 20,
+        "explanation": "Комиссия объяснена верно: 0,1%, но не меньше 1,5 $ за поручение (#5), на просьбу вернуть деньги дан ответ. Не сказано, где посмотреть тариф и как снизить минимальную комиссию — второстепенная деталь. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Клиент выразил недовольство (#2, #6), а оператор ответил грубостью: «если умеете читать» (#7), «Как заслуживаете» (#9). Грубость содержится в самих словах голосовых сообщений, поэтому вывод сделан по тексту; интонация и тон голоса не оценивались и для вывода не нужны.",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 7,
+        "points": 13.13,
+        "weight": 15,
+        "explanation": "Первые ответы ясные (#3, #5). Один заметный сбой: в #9 вместо ответа по существу — совет «торгуйте суммами побольше». Ясность и порядок ответов оценены по тексту голосовых сообщений; темп и интонация речи не учитывались.",
+        "evidence_ids": [
+          5,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "no",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Оператор спросил «Ещё вопросы?» (#9), но не попрощался: после ответа клиента чат закрыт (#11). Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          9,
+          11
+        ],
+        "skipped_at": {
+          "from": 10,
+          "to": 11
+        },
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "yes",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорбление клиента: «Читать договор перед подписанием не пробовали? … если умеете читать» (#7) и «Как заслуживаете» (#9). Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": true,
+      "type": "insult"
+    },
+    "total": 63.13
+  },
+  {
+    "conversation_id": "p1-ru-005",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "В первом ответе (#5) оператор поздоровался и представился: «Меня зовут Ержан».",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор спросил номер договора (#5), клиент дал ФИО и год рождения владельца счёта (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "no",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Обращается не владелец счёта, а родственник (#3). Оператор не проверил ни личность, ни полномочия (доверенность) и раскрыл баланс (#7) и ИИН (#9). Проверка требовалась и не подтверждена в чате — «Нет».",
+        "evidence_ids": [
+          3,
+          7,
+          9
+        ],
+        "skipped_at": {
+          "from": 5,
+          "to": 7
+        },
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 0,
+        "points": 0,
+        "weight": 20,
+        "explanation": "Ключевая рекомендация ошибочна: данные чужого счёта выдавать было нельзя. Нужно было объяснить, что сведения получает только владелец или представитель по доверенности (#7, #9).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор вежлив и отреагировал на ситуацию клиента: «пусть скорее поправляется» (#5), «здоровья маме» (#11).",
+        "evidence_ids": [
+          5,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 15,
+        "weight": 15,
+        "explanation": "Ответы короткие, ясные и по порядку вопросов (#7, #9, #11).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь и попрощался (#11).",
+        "evidence_ids": [
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "yes",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Раскрытие конфиденциальной информации третьему лицу без проверки: баланс и стоимость бумаг (#7), ИИН владельца счёта (#9).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": true,
+      "type": "data_disclosure"
+    },
+    "total": 60
+  },
+  {
+    "conversation_id": "p1-ru-006",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 11.76,
+        "weight": 10,
+        "explanation": "В первом ответе (#4) оператор поздоровался и представился: «Меня зовут Мадина».",
+        "evidence_ids": [
+          4
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал бумагу и ожидаемую дату выплаты (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 23.53,
+        "weight": 20,
+        "explanation": "Оператор запросил ФИО и 4 цифры договора (#4) до раскрытия данных о начислениях, система подтвердила личность (#6).",
+        "evidence_ids": [
+          4,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 23.53,
+        "weight": 20,
+        "explanation": "Оператор объяснил срок зачисления и налог, назвал сумму (#9) и дал следующий шаг, если деньги не придут (#11).",
+        "evidence_ids": [
+          9,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 17.65,
+        "weight": 15,
+        "explanation": "Оператор извинился за ожидание и объяснил его причину (#11), вежливо ответил на беспокойство клиента.",
+        "evidence_ids": [
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 4,
+        "points": 7.06,
+        "weight": 15,
+        "explanation": "После подтверждения личности (#6) оператор молчал 6 минут (01:26 → 07:28) — дольше порога в 3 минуты — и не предупредил об ожидании. Клиенту пришлось дважды напоминать о себе (#7, #8).",
+        "evidence_ids": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "skipped_at": {
+          "from": 6,
+          "to": 9
+        },
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5.88,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь (#11) и попрощался (#13).",
+        "evidence_ids": [
+          11,
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 14
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 89.41
+  },
+  {
+    "conversation_id": "p1-ru-007",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 18.18,
+        "weight": 10,
+        "explanation": "В первом ответе (#4) оператор поздоровался и представился: «Меня зовут Камила».",
+        "evidence_ids": [
+          4
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 27.27,
+        "weight": 15,
+        "explanation": "Клиент назвал только тему (#2), и оператор уточнил, что именно нужно (#4).",
+        "evidence_ids": [
+          2,
+          4
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась.",
+        "evidence_ids": [
+          2,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": "До запроса дело не дошло (#5, #8): данные не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Консультация не оценивается.",
+        "evidence_ids": [
+          5,
+          7,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент назвал только тему «облигации» (#2) и ушёл, не сформулировав запрос (#5): чат закрыт по неактивности (#8)."
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 27.27,
+        "weight": 15,
+        "explanation": "Оператор вежлив и не торопит клиента: «не торопитесь, я на связи» (#6).",
+        "evidence_ids": [
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 7,
+        "points": 19.09,
+        "weight": 15,
+        "explanation": "Ответы ясные (#4, #6). Один сбой: первая реакция через 3 мин 42 с (00:10 → 03:52) — дольше порога в 3 минуты, без предупреждения.",
+        "evidence_ids": [
+          3,
+          4
+        ],
+        "skipped_at": {
+          "from": 3,
+          "to": 4
+        },
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "na",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Завершение не оценивается.",
+        "evidence_ids": [
+          7,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент перестал отвечать, чат закрыт системой (#7, #8): оператор не мог завершить диалог."
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 8
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 91.82
+  },
+  {
+    "conversation_id": "p1-ru-008",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "no",
+        "points": 0,
+        "weight": 10,
+        "explanation": "Чат переведён на оператора (#5), но оператор так и не написал: поздоровался только бот (#2). Система зафиксировала, что оператор не ответил (#11).",
+        "evidence_ids": [
+          5,
+          11
+        ],
+        "skipped_at": {
+          "from": 5,
+          "to": 12
+        },
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Бот дал шаблонный совет (#4). Клиент сообщил, что документы обновлены (#7), но никто не уточнил причину блокировки.",
+        "evidence_ids": [
+          4,
+          7
+        ],
+        "skipped_at": {
+          "from": 7,
+          "to": 12
+        },
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не проводилась и не понадобилась.",
+        "evidence_ids": [
+          11,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": "Оператор не подключился (#11): данные не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 5,
+        "points": 6.25,
+        "weight": 20,
+        "explanation": "Есть только общая подсказка бота о документах (#4). Она не подошла (#7), и клиенту по-прежнему непонятно, как вывести деньги.",
+        "evidence_ids": [
+          4,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Клиент выразил недовольство ожиданием (#7, #9), на конкретную проблему никто не отреагировал — только шаблон бота (#8, #10).",
+        "evidence_ids": [
+          9,
+          10
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 4,
+        "points": 7.5,
+        "weight": 15,
+        "explanation": "Обещанное время ответа 2 минуты (#6) превышено в 5 раз. Клиенту пришлось дважды переспрашивать (#7, #9), бот повторял одну фразу (#8, #10).",
+        "evidence_ids": [
+          6,
+          8,
+          10
+        ],
+        "skipped_at": {
+          "from": 6,
+          "to": 11
+        },
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "no",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Оператор не подвёл итог и не попрощался: чат закрыт по таймауту из-за отсутствия ответа оператора (#11, #12). Возможность завершить диалог была — это «Нет», а не N/A.",
+        "evidence_ids": [
+          11,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 12
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 13.75
+  },
+  {
+    "conversation_id": "p1-ru-009",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 11.76,
+        "weight": 10,
+        "explanation": "В первом ответе (#3) оператор поздоровался и представился: «Меня зовут Олжас».",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал новый номер, причину смены и имя (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "no",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Смена номера — защищённое действие: на него приходят коды подтверждения. Клиент назвал только имя (#2), личность не проверялась, а в #5 номер уже привязан. Проверка требовалась и не подтверждена в чате — «Нет».",
+        "evidence_ids": [
+          2,
+          5
+        ],
+        "skipped_at": {
+          "from": 2,
+          "to": 5
+        },
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 23.53,
+        "weight": 20,
+        "explanation": "Оператор выполнил запрос (#5), подтвердил, что старый номер отвязан, и дал совет по безопасности (#7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 17.65,
+        "weight": 15,
+        "explanation": "Оператор посочувствовал потере сим-карты (#3) и учёл, что клиент торопится.",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 17.65,
+        "weight": 15,
+        "explanation": "Ответы короткие, ясные и по порядку (#5, #7, #9).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5.88,
+        "weight": 5,
+        "explanation": "Оператор подвёл итог и попрощался (#9).",
+        "evidence_ids": [
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 10
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 76.47
+  },
+  {
+    "conversation_id": "p1-ru-010",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "В первом ответе (#5) оператор поздоровался и представился: «Меня зовут Айгерим».",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор учёл запрос (#3) и уточнил брокера и биржи (#5), клиент ответил (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 20,
+        "weight": 20,
+        "explanation": "Оператор запросил ФИО и 4 цифры договора (#7) до проверки счёта, система подтвердила личность (#9).",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 20,
+        "weight": 20,
+        "explanation": "Даны шаги перевода (#11), стоимость и срок (#13), ответ про дивиденды на дату отсечки (#15). Все вопросы закрыты.",
+        "evidence_ids": [
+          11,
+          13,
+          15
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор вежлив и доброжелателен (#5, #17), обращается по имени (#10, #19).",
+        "evidence_ids": [
+          5,
+          17
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 15,
+        "weight": 15,
+        "explanation": "Ответы ясные и по порядку вопросов. Об ожидании оператор предупредил заранее: «займёт около минуты» (#10).",
+        "evidence_ids": [
+          10,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор подвёл итог и предложил помощь (#17), попрощался (#19).",
+        "evidence_ids": [
+          17,
+          19
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 20
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 100
+  },
+  {
+    "conversation_id": "p1-ru-011",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 11.76,
+        "weight": 10,
+        "explanation": "В первом ответе (#3) оператор поздоровался и представился: «Меня зовут Тимур».",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал заявку и вопрос о сроке (#2): после идентификации оператор нашёл её по счёту."
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 23.53,
+        "weight": 20,
+        "explanation": "Оператор запросил ФИО и 4 цифры договора (#3) до раскрытия данных о заявке, система подтвердила личность (#5).",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 10,
+        "points": 11.76,
+        "weight": 20,
+        "explanation": "Статус и сумма заявки подтверждены (#6), но главный вопрос — срок — остался открытым: 1 день (#6), до 5 дней (#8), 2–3 дня (#10), «точнее сказать не могу» (#12).",
+        "evidence_ids": [
+          6,
+          8,
+          10,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Клиент описал неудобство — оплата в пятницу (#11), но оператор не предложил решения и ответил «зависит от банка» (#12).",
+        "evidence_ids": [
+          11,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 0,
+        "points": 0,
+        "weight": 15,
+        "explanation": "Оператор трижды назвал разные сроки (#6, #8, #10), клиент прямо говорит, что не понимает (#9). Ход диалога непонятен из-за противоречивых реплик.",
+        "evidence_ids": [
+          6,
+          8,
+          9,
+          10
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5.88,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь (#12) и попрощался (#14).",
+        "evidence_ids": [
+          12,
+          14
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 15
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 52.94
+  },
+  {
+    "conversation_id": "p1-kz-002",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "no",
+        "points": 0,
+        "weight": 10,
+        "explanation": "Клиент говорит по-казахски с русскими вставками (#2), а оператор поздоровался и отвечал только по-русски (#3). Приветствия на языке клиента не было — язык определён по тексту голосовых сообщений.",
+        "evidence_ids": [
+          2,
+          3
+        ],
+        "skipped_at": {
+          "from": 2,
+          "to": 3
+        },
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу спросил про способ пополнения и комиссию (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Общий вопрос о пополнении счёта (#2): персональные данные не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 20,
+        "points": 30.77,
+        "weight": 20,
+        "explanation": "Оператор назвал способы пополнения (#3), комиссию и сроки (#5), ответил про минимальную сумму (#7). Все вопросы закрыты. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          3,
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 23.08,
+        "weight": 15,
+        "explanation": "Оператор вежлив: «спасибо за обращение, хорошего дня» (#9), недовольства клиент не выражал (#3, #9). Вежливость видна в словах голосовых сообщений, поэтому вывод сделан по тексту; интонация и тон голоса не оценивались.",
+        "evidence_ids": [
+          3,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 7,
+        "points": 16.15,
+        "weight": 15,
+        "explanation": "Ответы ясные, но в #3 оператор пропустил вопрос о комиссии из #2 — клиенту пришлось переспросить (#4). Один заметный сбой. Оценено по тексту голосовых сообщений; темп и интонация речи не учитывались.",
+        "evidence_ids": [
+          2,
+          3,
+          4
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 7.69,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь (#7) и попрощался (#9). Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [
+          7,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено. Оценка по тексту голосового сообщения; интонация не оценивалась.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 10
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 77.69
+  },
+  {
+    "conversation_id": "p1-kz-003",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 15.38,
+        "weight": 10,
+        "explanation": "Оператор поздоровался по-казахски и представился: «Менің атым Әлия» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал тариф и рынок (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Общий вопрос о тарифе (#2): персональные данные не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 15,
+        "points": 23.08,
+        "weight": 20,
+        "explanation": "Комиссия названа верно — 0,1% от суммы сделки, обслуживание бесплатно (#3). Не упомянута минимальная комиссия за поручение — второстепенная деталь.",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 23.08,
+        "weight": 15,
+        "explanation": "Оператор вежлив, недовольства клиент не выражал (#3, #5).",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 23.08,
+        "weight": 15,
+        "explanation": "Ответ короткий, ясный и сразу по существу (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 7.69,
+        "weight": 5,
+        "explanation": "Оператор предложил обращаться с вопросами и попрощался: «Сау болыңыз!» (#5).",
+        "evidence_ids": [
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 6
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 92.31
+  },
+  {
+    "conversation_id": "p1-en-002",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 11.76,
+        "weight": 10,
+        "explanation": "Оператор поздоровался по-английски и представился: «my name is Sarah» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "na",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Уточнять было нечего.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент сразу назвал сумму, услугу и период списания (#2): данных для ответа хватало с самого начала."
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 23.53,
+        "weight": 20,
+        "explanation": "Оператор запросил имя и 4 цифры договора (#3) до раскрытия данных и отмены подписки, система подтвердила личность (#5).",
+        "evidence_ids": [
+          3,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 15,
+        "points": 17.65,
+        "weight": 20,
+        "explanation": "Причина списания объяснена, подписка отменена, возврат оформлен (#6), срок назван (#8). Не сказано, как не попасть на автопродление пробных подписок в будущем, — второстепенная деталь.",
+        "evidence_ids": [
+          6,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 17.65,
+        "weight": 15,
+        "explanation": "Оператор посочувствовал (#3), извинился ещё раз (#8) и решил конкретную проблему (#6).",
+        "evidence_ids": [
+          3,
+          6,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 17.65,
+        "weight": 15,
+        "explanation": "Ответы ясные и по порядку (#6, #8). Пауза 42 с на проверку — ниже порога в 3 минуты.",
+        "evidence_ids": [
+          6,
+          8
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5.88,
+        "weight": 5,
+        "explanation": "Оператор предложил дальнейшую помощь и попрощался (#10).",
+        "evidence_ids": [
+          10
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 11
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 94.12
+  },
+  {
+    "conversation_id": "p1-en-003",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 13.33,
+        "weight": 10,
+        "explanation": "Оператор поздоровался по-английски и представился: «I'm Alex from support» (#3).",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Клиент сказал, что раздел «Ideas» ему непонятен (#4). Оператор не уточнил, что именно непонятно, и сразу перешёл к частному предложению (#5).",
+        "evidence_ids": [
+          4,
+          5
+        ],
+        "skipped_at": {
+          "from": 4,
+          "to": 5
+        },
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка личности не требовалась.",
+        "evidence_ids": [
+          2
+        ],
+        "skipped_at": null,
+        "na_reason": "Общий вопрос новичка (#2): данные счёта не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 0,
+        "points": 0,
+        "weight": 20,
+        "explanation": "Ключевая рекомендация ошибочна: вместо помощи с модельными портфелями или официальными услугами оператор предложил перевести деньги ему лично (#5, #7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "no",
+        "points": 0,
+        "weight": 15,
+        "explanation": "Клиент описал затруднение (#4), но оператор не помог разобраться, а предложил частную схему (#5).",
+        "evidence_ids": [
+          4,
+          5
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 20,
+        "weight": 15,
+        "explanation": "Реплики ясные и связные (#3, #5, #7), клиент понимал ответы.",
+        "evidence_ids": [
+          3,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "na",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Завершение не оценивается.",
+        "evidence_ids": [
+          8,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": "Клиент попрощался и сразу вышел из чата (#8, #9): у оператора не было возможности завершить диалог."
+      },
+      {
+        "id": 8,
+        "answer": "yes",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Предложение услуги в обход компании: перевести деньги на личную карту оператора для управления за 10% прибыли и прислать личный номер (#5); оператор подтвердил, что это не через компанию (#7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": true,
+      "type": "bypass_service"
+    },
+    "total": 33.33
+  },
+  {
+    "conversation_id": "p1-call-002",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 13.33,
+        "weight": 10,
+        "explanation": "В первой реплике (#3) оператор поздоровался и представился: «Меня зовут Асель».",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 20,
+        "weight": 15,
+        "explanation": "Из-за плохой связи вопрос был неразборчив (#4). Оператор уточнил, о покупке или о купоне речь (#5), клиент ответил (#6).",
+        "evidence_ids": [
+          4,
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "na",
+        "points": 0,
+        "weight": 20,
+        "explanation": "Проверка не завершена из-за обрыва, но данные и не раскрывались.",
+        "evidence_ids": [
+          9,
+          10,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": "Оператор запросил ФИО и 4 цифры договора (#9) до раскрытия данных, но звонок оборвался (#12): данные по счёту не раскрывались, защищённых действий не было."
+      },
+      {
+        "id": 4,
+        "answer": 10,
+        "points": 13.33,
+        "weight": 20,
+        "explanation": "Оператор назвал общий срок зачисления купона — 1–3 рабочих дня (#9), но вопрос по счёту клиента остался открытым: звонок оборвался (#12).",
+        "evidence_ids": [
+          9,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 20,
+        "weight": 15,
+        "explanation": "Оператор спокойно реагировал на плохую связь и перебивания (#5, #9) и подсказал, что делать при обрыве (#11).",
+        "evidence_ids": [
+          5,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 20,
+        "weight": 15,
+        "explanation": "Несмотря на перебивания (#8), ответы ясные: оператор сначала дал общий срок, затем объяснил, зачем нужна проверка (#9).",
+        "evidence_ids": [
+          8,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "na",
+        "points": 0,
+        "weight": 5,
+        "explanation": "Завершение не оценивается.",
+        "evidence_ids": [
+          11,
+          12
+        ],
+        "skipped_at": null,
+        "na_reason": "Звонок прервался из-за потери связи (#12): оператор не мог завершить разговор."
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 12
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 86.67
+  },
+  {
+    "conversation_id": "p1-call-kz-001",
+    "criteria": [
+      {
+        "id": 1,
+        "answer": "yes",
+        "points": 10,
+        "weight": 10,
+        "explanation": "В первой реплике (#3) оператор поздоровался по-казахски и представился: «Менің атым Ерлан».",
+        "evidence_ids": [
+          3
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 2,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор уточнил сумму заявки (#5), клиент назвал её (#6).",
+        "evidence_ids": [
+          5,
+          6
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 3,
+        "answer": "yes",
+        "points": 20,
+        "weight": 20,
+        "explanation": "Оператор запросил ФИО и ИИН (#5) до раскрытия данных о заявке, система подтвердила личность (#7).",
+        "evidence_ids": [
+          5,
+          7
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 4,
+        "answer": 15,
+        "points": 15,
+        "weight": 20,
+        "explanation": "Статус заявки и срок зачисления названы (#9), причина задержки объяснена (#11). Не сказано, что делать, если деньги не придут сегодня, — второстепенная деталь.",
+        "evidence_ids": [
+          9,
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 5,
+        "answer": "yes",
+        "points": 15,
+        "weight": 15,
+        "explanation": "Оператор извинился за ожидание и объяснил его причину (#11).",
+        "evidence_ids": [
+          11
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 6,
+        "answer": 10,
+        "points": 15,
+        "weight": 15,
+        "explanation": "Ответы ясные и по порядку. Об ожидании оператор предупредил: «Бір минут күте тұрыңыз» (#8), ответ пришёл через 45 с (#9).",
+        "evidence_ids": [
+          8,
+          9
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 7,
+        "answer": "yes",
+        "points": 5,
+        "weight": 5,
+        "explanation": "Оператор предложил обращаться с вопросами и попрощался: «Сау болыңыз!» (#13).",
+        "evidence_ids": [
+          13
+        ],
+        "skipped_at": null,
+        "na_reason": null
+      },
+      {
+        "id": 8,
+        "answer": "no",
+        "points": 0,
+        "weight": 0,
+        "explanation": "Оскорблений, предложений услуг в обход компании и раскрытия конфиденциальных данных не выявлено.",
+        "evidence_ids": [],
+        "skipped_at": {
+          "from": 1,
+          "to": 14
+        },
+        "na_reason": null
+      }
+    ],
+    "gross_error": {
+      "flag": false,
+      "type": null
+    },
+    "total": 95
+  }
+]

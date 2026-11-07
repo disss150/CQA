@@ -1,0 +1,6 @@
+.claude
+tests
+docs
+node_modules
+.env*
+.vercel

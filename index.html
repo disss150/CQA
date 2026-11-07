@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru" data-cqa-standalone>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CQA · Оценка качества диалогов</title>
+  <!-- Статичный знак; js/favicon.js оживляет его через canvas, если это возможно -->
+  <link rel="icon" id="cqa-favicon" type="image/svg+xml" href="favicon.svg">
+  <!-- Inter с кириллицей и казахскими буквами; без сети сработает системный шрифт из --cqa-font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/cqa.css">
+  <!-- Стили страницы-хоста демо (не компонента): без отступа браузера по краям -->
+  <style>html[data-cqa-standalone], html[data-cqa-standalone] body { margin: 0; padding: 0; } html[data-cqa-standalone] { background: #e9f4ee; }</style>
+  <!-- Все модули грузятся параллельно, без цепочки import → import (быстрее старт на удалённом хостинге) -->
+  <link rel="modulepreload" href="js/app.js">
+  <link rel="modulepreload" href="js/api.js">
+  <link rel="modulepreload" href="js/checklist-draft.js">
+  <link rel="modulepreload" href="js/config.js">
+  <link rel="modulepreload" href="js/explain.js">
+  <link rel="modulepreload" href="js/export.js">
+  <link rel="modulepreload" href="js/favicon.js">
+  <link rel="modulepreload" href="js/fx.js">
+  <link rel="modulepreload" href="js/icons.js">
+  <link rel="modulepreload" href="js/motion.js">
+  <link rel="modulepreload" href="js/results.js">
+  <link rel="modulepreload" href="js/scoring.js">
+  <link rel="modulepreload" href="js/store.js">
+  <link rel="modulepreload" href="js/theme.js">
+  <link rel="modulepreload" href="js/ui.js">
+  <link rel="modulepreload" href="js/components/checklist-editor.js">
+  <link rel="modulepreload" href="js/components/logo.js">
+  <link rel="modulepreload" href="js/components/result-view.js">
+  <link rel="modulepreload" href="js/components/transcript.js">
+  <link rel="modulepreload" href="js/components/voice.js">
+  <link rel="modulepreload" href="js/screens/appeals.js">
+  <link rel="modulepreload" href="js/screens/checklist.js">
+  <link rel="modulepreload" href="js/screens/control.js">
+  <link rel="modulepreload" href="js/screens/conversation.js">
+  <link rel="modulepreload" href="js/screens/evaluate.js">
+  <link rel="modulepreload" href="js/screens/list.js">
+  <link rel="modulepreload" href="js/screens/review.js">
+  <link rel="modulepreload" href="js/screens/settings.js">
+</head>
+<body>
+  <div id="cqa-root" class="cqa-app"></div>
+  <noscript>Для работы прототипа нужен JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
