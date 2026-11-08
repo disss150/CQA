@@ -41,7 +41,7 @@ function parse() {
 export function mount(root) {
   const count = () => h('span', { class: 'cqa-nav__count', hidden: true, 'aria-label': 'открытых апелляций' });
 
-  const nav = h('nav', { class: 'cqa-nav', 'aria-label': 'Разделы' }, h('ul', { class: 'cqa-nav__list' },
+  const nav = h('nav', { class: 'cqa-nav', id: 'cqa-nav', 'aria-label': 'Разделы' }, h('ul', { class: 'cqa-nav__list' },
     NAV.map(([key, label, ic]) => h('li', {}, h('a', { class: 'cqa-nav__link', href: `#/${key}`, 'data-key': key }, icon(ic, null, 16), label, key === 'appeals' ? count() : null)))));
   const tabbar = h('nav', { class: 'cqa-tabbar', 'aria-label': 'Разделы' },
     NAV.map(([key, label, ic]) => h('a', { class: 'cqa-tabbar__link', href: `#/${key}`, 'data-key': key },
@@ -59,21 +59,40 @@ export function mount(root) {
   const logo = createLogo();
   const favicon = initFavicon();
 
+  // Шапка свёрнута: виден только кубик в левом верхнем углу. Нажатие на кубик раскрывает всё остальное —
+  // название, переключатель темы, панель разделов и строку контекста; повторное нажатие сворачивает обратно.
+  // Сам кубик не скрывается никогда. Кубик — кнопка рядом со ссылкой на главную (кнопку нельзя вкладывать в ссылку).
+  const navWrap = h('div', { class: 'cqa-nav-wrap' }, h('div', { class: 'cqa-nav-wrap__inner' }, nav));
+  const navToggle = h('button', { type: 'button', class: 'cqa-logo-btn', 'aria-controls': 'cqa-header-extra' }, logo.el);
+  let chromeOpen = false;
+  const syncChrome = () => {
+    root.classList.toggle('cqa-chrome-closed', !chromeOpen);
+    // Свёрнутые элементы не получают фокус и не читаются скринридером
+    root.querySelectorAll('.cqa-brand__link, .cqa-header__tools, .cqa-nav-wrap, .cqa-context').forEach((el) => { el.inert = !chromeOpen; });
+    const label = chromeOpen ? 'Свернуть шапку' : 'Развернуть шапку: название, разделы и настройки';
+    navToggle.setAttribute('aria-expanded', String(chromeOpen));
+    navToggle.setAttribute('aria-label', label);
+    navToggle.title = chromeOpen ? 'Свернуть шапку' : 'Развернуть шапку';
+  };
+  navToggle.addEventListener('click', () => { chromeOpen = !chromeOpen; syncChrome(); });
+
   root.replaceChildren(
     h('a', { class: 'cqa-skip', href: '#cqa-main', onclick: (e) => { e.preventDefault(); main.focus(); } }, 'К содержимому'),
     h('header', { class: 'cqa-header' },
       h('div', { class: 'cqa-header__top' },
-        h('a', { class: 'cqa-brand', href: '#/list', 'aria-label': 'CQA — на главную, к списку диалогов' },
-          logo.el,
-          h('span', { class: 'cqa-brand__text' }, h('strong', { class: 'cqa-brand__title' }, 'Оценка качества диалогов'),
-            h('span', { class: 'cqa-brand__sub' }, 'Учебный прототип хакатона · не продукт компании'))),
-        h('div', { class: 'cqa-header__tools' }, themeToggle())),
-      nav),
-    h('div', { class: 'cqa-context' }, h('div', { class: 'cqa-context__inner', 'aria-label': 'Текущий контекст работы' }, contextToggle, contextItems)),
+        h('div', { class: 'cqa-brand' },
+          navToggle,
+          h('a', { class: 'cqa-brand__link', href: '#/list', 'aria-label': 'CQA — на главную, к списку диалогов' },
+            h('span', { class: 'cqa-brand__text' }, h('strong', { class: 'cqa-brand__title' }, 'Оценка качества диалогов'),
+              h('span', { class: 'cqa-brand__sub' }, 'Учебный прототип хакатона · не продукт компании')))),
+        h('div', { class: 'cqa-header__tools', id: 'cqa-header-extra' }, themeToggle())),
+      navWrap),
+    h('div', { class: 'cqa-context' }, h('div', { class: 'cqa-context__clip' }, h('div', { class: 'cqa-context__inner', 'aria-label': 'Текущий контекст работы' }, contextToggle, contextItems))),
     main,
     h('footer', { class: 'cqa-footer' }, 'CQA — учебный прототип для хакатона. Данные демонстрационные. Горячие клавиши: ?'),
     tabbar);
 
+  syncChrome();
   initMotion(root);
   initFx(root);
   prepareSpots(main);

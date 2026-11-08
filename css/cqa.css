@@ -134,7 +134,32 @@
 .cqa-header { background: linear-gradient(120deg, var(--cqa-header-from), var(--cqa-header-to)); color: var(--cqa-on-dark); }
 .cqa-header__top, .cqa-nav { max-width: var(--cqa-max); margin: 0 auto; padding: 0 var(--cqa-s4); }
 .cqa-header__top { display: flex; align-items: center; justify-content: space-between; gap: var(--cqa-s3); padding-top: var(--cqa-s3); padding-bottom: var(--cqa-s2); }
-.cqa-app .cqa-brand { display: flex; align-items: center; gap: var(--cqa-s3); min-width: 0; color: inherit; text-decoration: none; }
+.cqa-app .cqa-brand { display: flex; align-items: center; gap: var(--cqa-s3); min-width: 0; color: inherit; }
+.cqa-app .cqa-brand__link { display: block; min-width: 0; color: inherit; text-decoration: none; border-radius: var(--cqa-r-sm); }
+.cqa-app .cqa-brand__link:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 3px; }
+/* Кубик — кнопка «показать / скрыть панель разделов» */
+.cqa-app .cqa-logo-btn {
+  flex: none; display: grid; place-items: center; margin: -4px; padding: 4px; border: 0; border-radius: 10px;
+  background: none; color: inherit; cursor: pointer;
+}
+.cqa-app .cqa-logo-btn:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 0; }
+/* Свёрнутая шапка (.cqa-chrome-closed на корне): виден только кубик. Раскрытие — плавно:
+   высота панели разделов и строки контекста через grid-template-rows, название и кнопки — прозрачность и сдвиг. */
+.cqa-nav-wrap, .cqa-context { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 320ms cubic-bezier(.2, .8, .2, 1), border-color 200ms ease; }
+.cqa-nav-wrap__inner, .cqa-context__clip { min-height: 0; overflow: hidden; }
+.cqa-chrome-closed .cqa-nav-wrap, .cqa-chrome-closed .cqa-context { grid-template-rows: 0fr; }
+.cqa-chrome-closed .cqa-context { border-bottom-width: 0; }
+.cqa-app .cqa-brand__link, .cqa-header__tools, .cqa-nav-wrap .cqa-nav, .cqa-context__inner {
+  transition: opacity 220ms ease 60ms, transform 320ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 0s;
+}
+.cqa-chrome-closed .cqa-brand__link, .cqa-chrome-closed .cqa-header__tools,
+.cqa-chrome-closed .cqa-nav-wrap .cqa-nav, .cqa-chrome-closed .cqa-context__inner {
+  opacity: 0; visibility: hidden;
+  transition: opacity 180ms ease, transform 320ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 320ms;
+}
+.cqa-app.cqa-chrome-closed .cqa-brand__link { transform: translateX(-8px); }
+.cqa-chrome-closed .cqa-header__tools { transform: translateX(8px); }
+.cqa-chrome-closed .cqa-nav-wrap .cqa-nav, .cqa-chrome-closed .cqa-context__inner { transform: translateY(-8px); }
 .cqa-brand__text { min-width: 0; }
 .cqa-brand__title { display: block; font-size: 16px; font-weight: 600; line-height: 1.2; }
 .cqa-brand__sub { display: block; font-size: 12px; color: var(--cqa-on-dark-muted); }
