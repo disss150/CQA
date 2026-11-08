@@ -4,7 +4,6 @@ import { getConversations } from '../api.js';
 import { store } from '../store.js';
 import { exportSet } from '../export.js';
 import { countUp } from '../motion.js';
-import { startTour } from '../tour.js';
 import { CONFIG } from '../config.js';
 
 const filters = { q: '', language: '', channel: '', status: '' };
@@ -15,8 +14,7 @@ export async function render(main) {
   const body = h('div', { class: 'cqa-screen__body' });
   const subtitle = h('span', {}, `Набор ${store.groupId}`);
   const exportSlot = h('div', { class: 'cqa-actions' });
-  const tourBtn = button('Презентация 5 минут', { icon: 'play', variant: 'primary', onclick: startTour });
-  main.append(h('div', { class: 'cqa-screen' }, screenHeader('Диалоги', subtitle, tourBtn, exportSlot), body));
+  main.append(h('div', { class: 'cqa-screen' }, screenHeader('Диалоги', subtitle, exportSlot), body));
 
   const load = async (force = false) => {
     body.replaceChildren(skeleton('table', 'Загружаем диалоги…'));

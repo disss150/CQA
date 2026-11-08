@@ -1,7 +1,9 @@
 // Точка входа: каркас, строка контекста, hash-роутер, горячие клавиши. Всё рисуется внутри #cqa-root.
 import { CONFIG } from './config.js';
 import { store } from './store.js';
-import { h, icon, button, setRoot, skeleton, errorState, dialogs, keepPickersBelow } from './ui.js';
+import { h, icon, button, setRoot, skeleton, errorState, dialogs, keepPickersBelow, confirmDialog } from './ui.js';
+import { getUser, signOut, onUserChange } from './user.js';
+import * as login from './screens/login.js';
 import { isDirty, onDraftChange } from './checklist-draft.js';
 import { getConversations } from './api.js';
 import { initTheme, themeToggle } from './theme.js';
@@ -9,7 +11,6 @@ import { initMotion, resetCountUps, reducedMotion } from './motion.js';
 import { initFavicon } from './favicon.js';
 import { createLogo } from './components/logo.js';
 import { initFx, burst, prepareSpots } from './fx.js';
-import { initTour, closeTour, tourOpen } from './tour.js';
 import * as list from './screens/list.js';
 import * as checklist from './screens/checklist.js';
 import * as evaluate from './screens/evaluate.js';
@@ -68,13 +69,33 @@ export function mount(root) {
   const syncChrome = () => {
     root.classList.toggle('cqa-chrome-closed', !chromeOpen);
     // Свёрнутые элементы не получают фокус и не читаются скринридером
-    root.querySelectorAll('.cqa-brand__link, .cqa-header__tools, .cqa-nav-wrap, .cqa-context').forEach((el) => { el.inert = !chromeOpen; });
+    root.querySelectorAll('.cqa-brand__link, .cqa-header__extra, .cqa-nav-wrap, .cqa-context').forEach((el) => { el.inert = !chromeOpen; });
     const label = chromeOpen ? 'Свернуть шапку' : 'Развернуть шапку: название, разделы и настройки';
     navToggle.setAttribute('aria-expanded', String(chromeOpen));
     navToggle.setAttribute('aria-label', label);
     navToggle.title = chromeOpen ? 'Свернуть шапку' : 'Развернуть шапку';
   };
   navToggle.addEventListener('click', () => { chromeOpen = !chromeOpen; syncChrome(); });
+
+  // Пользователь справа в шапке: имя · должность · «Выйти». Виден всегда, даже в свёрнутой шапке.
+  const userName = h('strong', { class: 'cqa-user__name' });
+  const userRole = h('span', { class: 'cqa-user__role' });
+  const logout = async () => {
+    const ok = await confirmDialog({ title: 'Выйти из аккаунта?', text: 'Профиль будет удалён из этого браузера. Оценки, апелляции и чек-листы останутся.', confirmLabel: 'Выйти' });
+    if (ok) signOut();
+  };
+  const userBlock = h('div', { class: 'cqa-user', role: 'group', 'aria-label': 'Пользователь' },
+    icon('user', null, 16), userName, userRole,
+    h('button', { type: 'button', class: 'cqa-user__logout', onclick: logout }, 'Выйти'));
+  const renderUser = () => {
+    const u = getUser();
+    userBlock.hidden = !u;
+    root.classList.toggle('cqa-signed-out', !u);
+    if (!u) return;
+    userName.textContent = u.name;
+    userName.title = u.name;
+    userRole.textContent = ` · ${u.role}`;
+  };
 
   root.replaceChildren(
     h('a', { class: 'cqa-skip', href: '#cqa-main', onclick: (e) => { e.preventDefault(); main.focus(); } }, 'К содержимому'),
@@ -85,7 +106,7 @@ export function mount(root) {
           h('a', { class: 'cqa-brand__link', href: '#/list', 'aria-label': 'CQA — на главную, к списку диалогов' },
             h('span', { class: 'cqa-brand__text' }, h('strong', { class: 'cqa-brand__title' }, 'Оценка качества диалогов'),
               h('span', { class: 'cqa-brand__sub' }, 'Учебный прототип хакатона · не продукт компании')))),
-        h('div', { class: 'cqa-header__tools', id: 'cqa-header-extra' }, themeToggle())),
+        h('div', { class: 'cqa-header__tools' }, userBlock, h('div', { class: 'cqa-header__extra', id: 'cqa-header-extra' }, themeToggle()))),
       navWrap),
     h('div', { class: 'cqa-context' }, h('div', { class: 'cqa-context__clip' }, h('div', { class: 'cqa-context__inner', 'aria-label': 'Текущий контекст работы' }, contextToggle, contextItems))),
     main,
@@ -93,11 +114,11 @@ export function mount(root) {
     tabbar);
 
   syncChrome();
+  renderUser();
   keepPickersBelow(root);
   initMotion(root);
   initFx(root);
   prepareSpots(main);
-  initTour(root);
   // Вспышка favicon по клику и после оценки; знак делает оборот после оценки
   root.addEventListener('pointerdown', () => favicon.flash());
   document.addEventListener('cqa:evaluated', () => { favicon.flash(); logo.flash(); });
@@ -146,7 +167,8 @@ export function mount(root) {
     let screen;
     const swap = () => {
       main.replaceChildren();
-      screen = ROUTES[route.name].render(main, route);
+      // Пока пользователь не вошёл, вместо любого раздела — экран входа
+      screen = (getUser() ? ROUTES[route.name] : login).render(main, route);
     };
     try {
       // View Transitions API: плавная смена экрана; без поддержки — CSS-появление (fade + сдвиг)
@@ -168,6 +190,8 @@ export function mount(root) {
     main.querySelector('.cqa-h1')?.focus({ preventScroll: true });
   };
   store.onChange(renderContext);
+  // Вход и «Выйти»: обновить шапку и перерисовать экран (после входа — тот раздел, что был в адресе)
+  onUserChange(() => { renderUser(); render(); });
   onDraftChange(renderContext);
   window.addEventListener('hashchange', () => { render(); root.scrollIntoView({ block: 'start' }); });
   initHotkeys(root, main, () => setContextOpen(false));
@@ -187,7 +211,7 @@ function initHotkeys(root, main, closeContext) {
         h('div', { class: 'cqa-keys' },
           row(['/'], 'Поиск: по диалогам на списке, по транскрипту в карточке'),
           row(['?'], 'Этот список клавиш'),
-          row(['Esc'], 'Закрыть окно, меню или презентацию')),
+          row(['Esc'], 'Закрыть окно или меню')),
         h('div', { class: 'cqa-actions cqa-actions--end' }, button('Закрыть', { variant: 'primary', onclick: () => help.close() }))));
     help.addEventListener('close', () => help.remove());
     root.append(help);
@@ -197,10 +221,9 @@ function initHotkeys(root, main, closeContext) {
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === 'Escape') {
-      // Нативные <dialog> закрываются сами; здесь — меню, контекст и презентация
+      // Нативные <dialog> закрываются сами; здесь — меню и контекст
       const menu = root.querySelector('details.cqa-menu[open]');
       if (menu) { menu.open = false; return; }
-      if (tourOpen()) { closeTour(); return; }
       closeContext();
       return;
     }

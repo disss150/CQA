@@ -149,21 +149,39 @@
 .cqa-nav-wrap__inner, .cqa-context__clip { min-height: 0; overflow: hidden; }
 .cqa-chrome-closed .cqa-nav-wrap, .cqa-chrome-closed .cqa-context { grid-template-rows: 0fr; }
 .cqa-chrome-closed .cqa-context { border-bottom-width: 0; }
-.cqa-app .cqa-brand__link, .cqa-header__tools, .cqa-nav-wrap .cqa-nav, .cqa-context__inner {
+.cqa-app .cqa-brand__link, .cqa-header__extra, .cqa-nav-wrap .cqa-nav, .cqa-context__inner {
   transition: opacity 220ms ease 60ms, transform 320ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 0s;
 }
-.cqa-chrome-closed .cqa-brand__link, .cqa-chrome-closed .cqa-header__tools,
+.cqa-chrome-closed .cqa-brand__link, .cqa-chrome-closed .cqa-header__extra,
 .cqa-chrome-closed .cqa-nav-wrap .cqa-nav, .cqa-chrome-closed .cqa-context__inner {
   opacity: 0; visibility: hidden;
   transition: opacity 180ms ease, transform 320ms cubic-bezier(.2, .8, .2, 1), visibility 0s linear 320ms;
 }
 .cqa-app.cqa-chrome-closed .cqa-brand__link { transform: translateX(-8px); }
-.cqa-chrome-closed .cqa-header__tools { transform: translateX(8px); }
+.cqa-chrome-closed .cqa-header__extra { transform: translateX(8px); }
 .cqa-chrome-closed .cqa-nav-wrap .cqa-nav, .cqa-chrome-closed .cqa-context__inner { transform: translateY(-8px); }
 .cqa-brand__text { min-width: 0; }
 .cqa-brand__title { display: block; font-size: 16px; font-weight: 600; line-height: 1.2; }
 .cqa-brand__sub { display: block; font-size: 12px; color: var(--cqa-on-dark-muted); }
-.cqa-header__tools { display: flex; align-items: center; gap: var(--cqa-s2); }
+.cqa-header__tools { flex: none; display: flex; align-items: center; gap: var(--cqa-s4); }
+.cqa-header__extra { display: flex; align-items: center; gap: var(--cqa-s2); }
+/* Пользователь: имя · должность · «Выйти» — справа в шапке, виден и в свёрнутой шапке */
+.cqa-user { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: 14px; color: var(--cqa-on-dark); white-space: nowrap; }
+.cqa-user > .cqa-icon { flex: none; opacity: .9; }
+.cqa-user__name { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+.cqa-user__role { color: var(--cqa-on-dark-muted); }
+.cqa-app .cqa-user__logout {
+  margin-left: var(--cqa-s2); padding: 2px 4px; border: 0; border-radius: var(--cqa-r-sm); background: none; color: var(--cqa-on-dark);
+  font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.cqa-app .cqa-user__logout:hover { color: #a7f3d0; }
+.cqa-app .cqa-user__logout:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 2px; }
+/* Не вошёл: только шапка и экран входа */
+.cqa-signed-out :is(.cqa-nav-wrap, .cqa-context, .cqa-tabbar) { display: none; }
+.cqa-screen.cqa-login-wrap { align-items: center; padding-top: var(--cqa-s6); }
+.cqa-login { width: min(420px, 100%); display: flex; flex-direction: column; gap: var(--cqa-s4); }
+.cqa-login__icon { width: 48px; height: 48px; border-radius: var(--cqa-r-pill); display: grid; place-items: center; background: var(--cqa-brand-50); color: var(--cqa-brand-600); }
+.cqa-login .cqa-actions .cqa-btn { width: 100%; justify-content: center; }
 .cqa-app .cqa-header .cqa-btn--ghost { color: var(--cqa-on-dark); }
 .cqa-app .cqa-header .cqa-btn--ghost:hover { background: rgba(255, 255, 255, .1); }
 .cqa-app .cqa-header :focus-visible { box-shadow: 0 0 0 2px var(--cqa-header-from), 0 0 0 4px var(--cqa-accent); }
@@ -774,6 +792,11 @@ select.cqa-input { padding-right: var(--cqa-s8); }
   .cqa-nav { display: none; }
   .cqa-header__top { padding-top: var(--cqa-s2); padding-bottom: var(--cqa-s2); }
   .cqa-logo { --cqa-logo: 30px; }
+  .cqa-user__role { display: none; }
+  .cqa-user { font-size: 13px; }
+  .cqa-user__name { max-width: 96px; }
+  .cqa-header__tools { gap: var(--cqa-s2); }
+  .cqa-app .cqa-user__logout { margin-left: 2px; }
   .cqa-brand__title { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cqa-brand__sub { display: none; }
   .cqa-context__inner { padding-top: var(--cqa-s1); padding-bottom: var(--cqa-s1); }
@@ -920,26 +943,6 @@ select.cqa-input { padding-right: var(--cqa-s8); }
 .cqa-ba--compact .cqa-ba__cell { padding: var(--cqa-s2) var(--cqa-s3); }
 .cqa-ba--compact .cqa-ba__total strong { font-size: 16px; }
 
-/* Презентация 5 минут */
-.cqa-tour {
-  position: fixed; left: 50%; bottom: var(--cqa-s4); z-index: 55; width: min(580px, calc(100% - 32px)); transform: translateX(-50%);
-  display: flex; flex-direction: column; gap: var(--cqa-s2); padding: var(--cqa-s4) var(--cqa-s5);
-  background: var(--cqa-surface); color: var(--cqa-text); border: 1px solid var(--cqa-border); border-radius: var(--cqa-r-lg); box-shadow: var(--cqa-shadow-lg);
-  animation: cqa-tour-in 260ms cubic-bezier(.2, 1.2, .4, 1);
-}
-@keyframes cqa-tour-in { from { opacity: 0; transform: translate(-50%, 16px); } }
-.cqa-tour__head { display: flex; align-items: center; gap: var(--cqa-s3); }
-.cqa-tour__badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--cqa-brand-600); }
-.cqa-tour__dots { display: flex; gap: 6px; margin-left: auto; }
-.cqa-tour__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cqa-border-strong); transition: transform 200ms; }
-.cqa-tour__dot--done { background: var(--cqa-brand-200); }
-.cqa-tour__dot--on { background: var(--cqa-brand-500); transform: scale(1.3); }
-.cqa-tour__title { display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--cqa-s2); font-size: 17px; font-weight: 600; }
-.cqa-tour__time { font-size: 12px; font-weight: 500; color: var(--cqa-text-muted); }
-.cqa-tour__text { font-size: 14px; }
-.cqa-tour__actions { display: flex; justify-content: space-between; gap: var(--cqa-s2); margin-top: var(--cqa-s1); }
-.cqa-app.cqa-touring .cqa-main { padding-bottom: 240px; }
-.cqa-app.cqa-touring .cqa-toasts { bottom: 220px; }
 
 /* Горячие клавиши */
 .cqa-keys { display: flex; flex-direction: column; gap: var(--cqa-s2); }
@@ -1007,9 +1010,6 @@ select.cqa-input { padding-right: var(--cqa-s8); }
 
 /* Телефон: эти правила стоят после базовых, иначе базовые перебивают их по порядку */
 @media (max-width: 720px) {
-  .cqa-tour { bottom: calc(var(--cqa-h-tabbar) + var(--cqa-s2) + env(safe-area-inset-bottom)); padding: var(--cqa-s3) var(--cqa-s4); }
-  .cqa-app.cqa-touring .cqa-main { padding-bottom: calc(var(--cqa-h-tabbar) + 280px); }
-  .cqa-app.cqa-touring .cqa-toasts { bottom: calc(var(--cqa-h-tabbar) + 230px); }
   .cqa-ba { grid-template-columns: minmax(0, 1fr); }
   .cqa-ba__arrow { transform: rotate(90deg); }
 }
