@@ -966,7 +966,11 @@ select.cqa-input { padding-right: var(--cqa-s8); }
 
   /* Панель списка: мягкая тень, скругления, появление сдвигом и прозрачностью */
   .cqa-app select.cqa-input::picker(select) {
-    margin-block: 6px; padding: var(--cqa-s1); min-width: anchor-size(width); max-height: min(340px, 60vh);
+    margin-block: 6px; padding: var(--cqa-s1); min-width: anchor-size(width);
+    /* Всегда под полем: браузер по умолчанию переворачивает список наверх, если внизу мало места.
+       Место внизу освобождает js (ui.js → keepPickersBelow): перед открытием страница прокручивается. */
+    position-area: block-end span-inline-end; position-try-fallbacks: none; position-try-order: normal;
+    max-height: min(340px, 60vh, calc(100% - 12px));
     background: var(--cqa-surface); color: var(--cqa-text); border: 1px solid var(--cqa-border); border-radius: var(--cqa-r);
     box-shadow: var(--cqa-shadow-lg);
     opacity: 0; transform: translateY(-6px) scale(.98); transform-origin: top center;

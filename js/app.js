@@ -1,7 +1,7 @@
 // Точка входа: каркас, строка контекста, hash-роутер, горячие клавиши. Всё рисуется внутри #cqa-root.
 import { CONFIG } from './config.js';
 import { store } from './store.js';
-import { h, icon, button, setRoot, skeleton, errorState, dialogs } from './ui.js';
+import { h, icon, button, setRoot, skeleton, errorState, dialogs, keepPickersBelow } from './ui.js';
 import { isDirty, onDraftChange } from './checklist-draft.js';
 import { getConversations } from './api.js';
 import { initTheme, themeToggle } from './theme.js';
@@ -93,6 +93,7 @@ export function mount(root) {
     tabbar);
 
   syncChrome();
+  keepPickersBelow(root);
   initMotion(root);
   initFx(root);
   prepareSpots(main);

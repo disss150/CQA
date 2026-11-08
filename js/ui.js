@@ -226,6 +226,40 @@ export function setFieldError(control, message) {
   else control.removeAttribute('aria-invalid');
 }
 
+/**
+ * Выпадающие списки открываются только вниз (см. ::picker(select) в cqa.css). Перед открытием проверяем,
+ * хватает ли места под полем; если нет — прокручиваем страницу (или прокручиваемый блок) ровно на недостающее.
+ */
+export function keepPickersBelow(el) {
+  const OPTION_H = 40;
+  const CHROME = 32; // отступ от поля, рамка, внутренние поля и запас до края экрана
+  const scrollerOf = (node) => {
+    for (let p = node.parentElement; p && p !== document.body; p = p.parentElement) {
+      const oy = getComputedStyle(p).overflowY;
+      if ((oy === 'auto' || oy === 'scroll') && p.scrollHeight > p.clientHeight) return p;
+    }
+    return document.scrollingElement || document.documentElement;
+  };
+  const makeRoom = (e) => {
+    const sel = e.target.closest?.('select.cqa-input');
+    if (!sel || sel.disabled || sel.matches(':open')) return;
+    if (e.type === 'keydown' && ![' ', 'Enter', 'ArrowDown', 'ArrowUp'].includes(e.key)) return;
+    const need = Math.min(340, window.innerHeight * 0.6, sel.options.length * OPTION_H + CHROME);
+    // На телефоне снизу закреплена панель разделов — список должен заканчиваться над ней
+    const bar = document.querySelector('.cqa-tabbar');
+    const barH = bar && getComputedStyle(bar).display !== 'none' ? bar.getBoundingClientRect().height : 0;
+    const below = window.innerHeight - barH - sel.getBoundingClientRect().bottom;
+    if (below >= need) return;
+    const scroller = scrollerOf(sel);
+    const before = scroller.scrollTop;
+    scroller.scrollTop += need - below;
+    // Если блок не прокрутился (уже в конце), пробуем окно
+    if (scroller.scrollTop === before && scroller !== document.scrollingElement) window.scrollBy(0, need - below);
+  };
+  el.addEventListener('pointerdown', makeRoom, true);
+  el.addEventListener('keydown', makeRoom, true);
+}
+
 export const select = (options, value, props = {}) =>
   h('select', { class: 'cqa-input', ...props },
     options.map((o) => h('option', { value: String(o.value), selected: String(o.value) === String(value), disabled: o.disabled }, o.label)));
